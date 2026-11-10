@@ -1,0 +1,4 @@
+# Archivos internos: solo se incluyen desde PHP, no son endpoints.
+<FilesMatch "^(config|db|bootstrap|seguridad|imagenes)\.php$">
+    Require all denied
+</FilesMatch>
