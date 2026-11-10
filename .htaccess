@@ -1,0 +1,31 @@
+Options -Indexes -MultiViews
+ServerSignature Off
+DirectoryIndex index.html
+
+# --- A02: HTTPS obligatorio fuera de localhost ---
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{HTTPS} off
+    RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:\d+)?$ [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
+
+# --- A05: nada de archivos ocultos, secretos, repos ni documentación del proyecto ---
+<IfModule mod_rewrite.c>
+    RewriteRule (^|/)\.(?!well-known/) - [F,L]
+</IfModule>
+<FilesMatch "(\.(env|sql|md|log|ini|lock|bak|sh)|composer\.(json|lock)|package(-lock)?\.json)$">
+    Require all denied
+</FilesMatch>
+
+# --- A02/A05/A03: cabeceras de seguridad para las páginas HTML/CSS/JS ---
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "same-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+    Header always set Cross-Origin-Opener-Policy "same-origin"
+    # CSP: solo scripts propios (bloquea XSS inyectado) y las fuentes de Google que usa el diseño.
+    Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' blob: data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+    Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" "expr=%{HTTPS} == 'on'"
+</IfModule>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Administración · Noche de Disfraces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="skip-link" href="#panel">Saltar al contenido principal</a>
+  <div class="niebla" aria-hidden="true"></div>
+  <header class="cabecera">
+    <a class="logo" href="index.html">🎃 Noche de Disfraces</a>
+    <nav id="nav" aria-label="Principal"></nav>
+  </header>
+
+  <main class="contenedor">
+    <section id="bloqueado" class="panel" hidden>
+      <h1>⛔ Acceso restringido</h1>
+      <p>Esta página es solo para el administrador. <a href="index.html">Volver al inicio</a></p>
+    </section>
+
+    <div id="panel" hidden>
+      <h1 class="titulo-pagina">⚰️ Panel de administración</h1>
+
+      <div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
+
+      <div class="admin-grid">
+        <form id="form-disfraz" class="panel formulario" enctype="multipart/form-data" novalidate>
+          <h2 id="titulo-form">Nuevo disfraz</h2>
+
+          <label for="nombre">Nombre</label>
+          <input id="nombre" name="nombre" type="text" required maxlength="50">
+
+          <label for="descripcion">Descripción</label>
+          <textarea id="descripcion" name="descripcion" rows="5" required maxlength="2000"></textarea>
+
+          <label for="foto">Foto (JPG, PNG, GIF o WEBP · máx. 2 MB)</label>
+          <input id="foto" name="foto" type="file" accept="image/jpeg,image/png,image/gif,image/webp">
+          <img id="vista-previa" class="vista-previa" alt="Vista previa de la foto" hidden>
+
+          <label id="fila-quitar" class="casilla" hidden>
+            <input type="checkbox" name="quitar_foto" value="1"> Quitar la foto actual
+          </label>
+
+          <div class="botones">
+            <button id="btn-guardar" type="submit" class="btn btn-votar">Crear disfraz</button>
+            <button id="btn-cancelar" type="button" class="btn" hidden>Cancelar edición</button>
+          </div>
+        </form>
+
+        <section class="panel" aria-label="Disfraces registrados">
+          <h2>Disfraces registrados</h2>
+          <div class="tabla-envoltura">
+            <table class="tabla">
+              <thead>
+                <tr><th>Foto</th><th>Nombre</th><th>Descripción</th><th>Votos</th><th>Acciones</th></tr>
+              </thead>
+              <tbody id="tabla-cuerpo"></tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pie"> Halloween en paradigmas III </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

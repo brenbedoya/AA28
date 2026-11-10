@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Iniciar sesión · Noche de Disfraces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="skip-link" href="#form-login">Saltar al formulario</a>
+  <div class="niebla" aria-hidden="true"></div>
+  <header class="cabecera">
+    <a class="logo" href="index.html">🎃 Noche de Disfraces</a>
+    <nav id="nav" aria-label="Principal"></nav>
+  </header>
+
+  <main class="contenedor contenedor-angosto">
+    <form id="form-login" class="panel formulario" novalidate>
+      <h1>🔮 Iniciar sesión</h1>
+      <p class="ayuda">Entra para poder votar por tus disfraces favoritos.</p>
+
+      <div id="mensaje" class="mensaje" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+      <label for="nombre">Usuario</label>
+      <input id="nombre" name="nombre" type="text" autocomplete="username" required maxlength="50" autofocus>
+
+      <label for="clave">Contraseña</label>
+      <input id="clave" name="clave" type="password" autocomplete="current-password" required maxlength="200">
+
+      <button type="submit" class="btn btn-votar btn-ancho">Entrar</button>
+      <p class="alterno">¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+    </form>
+  </main>
+
+  <footer class="pie">Hecho con 🎃 PHP + MySQL · API REST</footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Registro · Noche de Disfraces</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="skip-link" href="#form-registro">Saltar al formulario</a>
+  <div class="niebla" aria-hidden="true"></div>
+  <header class="cabecera">
+    <a class="logo" href="index.html">🎃 Noche de Disfraces</a>
+    <nav id="nav" aria-label="Principal"></nav>
+  </header>
+
+  <main class="contenedor contenedor-angosto">
+    <form id="form-registro" class="panel formulario" novalidate>
+      <h1>🧛 Crear cuenta</h1>
+      <p class="ayuda">Regístrate para unirte al concurso y votar.</p>
+
+      <div id="mensaje" class="mensaje" role="alert" aria-live="assertive" aria-atomic="true"></div>
+
+      <label for="nombre">Usuario</label>
+      <input id="nombre" name="nombre" type="text" autocomplete="username" required minlength="8" maxlength="12" autofocus aria-describedby="ayuda-nombre">
+      <small id="ayuda-nombre">8 a 12 caracteres: letras, números, punto, guion y guion bajo.</small>
+
+      <label for="clave">Contraseña</label>
+      <input id="clave" name="clave" type="password" autocomplete="new-password" required minlength="8" maxlength="12" aria-describedby="ayuda-clave">
+      <small id="ayuda-clave">Entre 8 y 12 caracteres.</small>
+
+      <label for="clave2">Repite la contraseña</label>
+      <input id="clave2" name="clave2" type="password" autocomplete="new-password" required minlength="8" maxlength="12">
+
+      <button type="submit" class="btn btn-votar btn-ancho">Registrarme</button>
+      <p class="alterno">¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a></p>
+    </form>
+  </main>
+
+  <footer class="pie">Halloween en paradigmas III </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/registro.js"></script>
+</body>
+</html>

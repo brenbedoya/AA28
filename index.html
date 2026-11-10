@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Noche de Disfraces · Halloween</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <a class="skip-link" href="#lista">Saltar al contenido principal</a>
+  <div class="niebla" aria-hidden="true"></div>
+  <header class="cabecera">
+    <a class="logo" href="index.html">🎃 Noche de Disfraces</a>
+    <nav id="nav" aria-label="Principal"></nav>
+  </header>
+
+  <main class="contenedor">
+    <section class="hero">
+      <h1>Vota por tu disfraz <span>más aterrador</span></h1>
+      <p>Inicia sesión y elige a tus favoritos. ¡Los más votados suben al podio! <span class="murcielagos" aria-hidden="true">🦇 🦇 🦇</span></p>
+    </section>
+
+    <div id="mensaje" class="mensaje" role="status" aria-live="polite" aria-atomic="true"></div>
+    <section id="lista" class="rejilla" aria-label="Lista de disfraces">
+      <p class="vacio">Invocando disfraces… 🕯️</p>
+    </section>
+  </main>
+
+  <footer class="pie">Halloween en Pardigmas III </footer>
+
+  <script src="js/api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

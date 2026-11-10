@@ -1,0 +1,9 @@
+# Secretos (A05)
+.env
+*.env
+!.env.example
+
+# Logs y archivos subidos
+logs/*.log
+uploads/*
+!uploads/.htaccess
